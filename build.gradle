@@ -1,0 +1,26 @@
+plugins {
+    id 'java'
+}
+
+group = 'blog.howardli'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation platform('org.junit:junit-bom:5.9.1')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    // https://mvnrepository.com/artifact/org.junit.platform/junit-platform-surefire-provider
+    testImplementation 'org.junit.platform:junit-platform-surefire-provider:1.3.2'
+
+}
+
+test {
+    useJUnitPlatform()
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+}
